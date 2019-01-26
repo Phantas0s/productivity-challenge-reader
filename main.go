@@ -27,7 +27,7 @@ type Pomodoro struct {
 
 type Project struct {
 	ID        int64  `json:"_id"` // ID
-	ParentID  int    `json:"_p"`  // Project parent id
+	ParentID  int64  `json:"_p"`  // Project parent id
 	Name      string `json:"_n"`  // Name
 	Timestamp int64  `json:"_t"`  // Timestamp
 	Duration  int    `json:"_d"`  // ??
@@ -42,10 +42,11 @@ type WorkUnit struct {
 }
 
 type Pro struct {
-	ID       int64
-	Name     string
-	Week     string
-	Pomodoro int64
+	ID         int64
+	Name       string
+	ParentName string
+	Week       string
+	Pomodoro   int64
 }
 
 func main() {
@@ -84,9 +85,10 @@ func main() {
 
 		if _, ok := results[po.ID][bTime]; !ok {
 			results[po.ID][bTime] = &Pro{
-				ID:       po.ID,
-				Name:     po.Name,
-				Pomodoro: 0,
+				ID:         po.ID,
+				Name:       po.Name,
+				ParentName: projects[po.ParentID].Name,
+				Pomodoro:   0,
 			}
 		}
 
@@ -96,7 +98,11 @@ func main() {
 
 	for _, v := range results {
 		for k, w := range v {
-			fmt.Println(k, ":", w.Name, ":", w.Pomodoro)
+			if w.ParentName != "" {
+				fmt.Printf("%s,%s \\\\ %s,%d\n", k, w.ParentName, w.Name, w.Pomodoro)
+			} else {
+				fmt.Printf("%s,%s,%d\n", k, w.Name, w.Pomodoro)
+			}
 		}
 	}
 }
