@@ -10,7 +10,7 @@ It's basically an app which give you ranks depending on how much Pomodoro you're
 
 Productivity Challenge Timer Backup Reader will group every Pomodoro you did per week and per project. When a project has `\\` in its name, it's a separator between the parent project and the child project.
 
-## How it works?
+## How does it work?
 
 1. Download the binary. From a terminal using curl:
 
