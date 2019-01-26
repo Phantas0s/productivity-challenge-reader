@@ -18,7 +18,9 @@ Productivity Challenge Timer Backup Reader will group every Pomodoro you did per
 
 If you want to install it somewhere else than `~/Documents/`, just change this part of the command (after the first `cd` and before `&&`)
 
-You can as well download the source and compile it by yourself. It will take less than 2 seconds.
+Or you can even download the release directly from github, just click on the `release` link above.
+
+You can as well download the source code and compile it by yourself. It will take less than 2 seconds.
 
 2. Create a backup from the Productivity Challenge Timer app
 3. Copy the backup to wherever you installed Productivity Challenge Timer Backup Reader (in my example `~/Documents/`)
